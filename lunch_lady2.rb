@@ -41,8 +41,7 @@ def fixuns
 	puts "here are your options:\n>ketchup\n>bbq sauce\n>bread\n>ranch dressing\n>tobasco"
 	fixuns_response = gets.strip.downcase
 	@fixuns<<fixuns_response
-	# puts 'Your basket has' @final_menu 'and with it you have included' @fixuns 
-	#cd
+	print "Your basket has #{@final_menu} and with it you have included" 
 	'on it'
 end
 
@@ -55,11 +54,14 @@ def sides
 	@side_choice = gets.strip.downcase
 	@final_menu << @side_choice
 		if @side_choice == 'carrots and yogurt' || @side_choice =='yogurt and carrots'
-			#puts the wallet subtraction here
+			print 'Your wallet now has $'
+			print @wallet - 2.75
 		elsif @side_choice == 'carrots and beef jerkey' || @side_choice == 'beef Jerkey and carrots'
-			#puts the wallet subtraction here
+			print 'Your wallet now has $'
+			print @wallet - 2.25
 		elsif @side_choice ==  'beef jerkey and yogurt' || @side_choice == 'yogurt and beef jerkey'
-			#puts the wallet subtraction here
+			print 'Your wallet now has $'
+			print @wallet - 1.50
 		else
 			'puts that is an invalid selection. Please try again'
 			sides
@@ -82,18 +84,15 @@ end
 def entree_selection
 	if @entree_choice == 'meat loaf'
 		puts 'You have selected Meat Loaf. You may now select two sides...'
-		print 'you now have ' 
-		print @wallet - @entrees[:meat_loaf]
+		puts "you now have $#{@wallet - @entrees[:meat_loaf]}"
 		puts sides
 	elsif @entree_choice ==  'mystery meat'
 		puts 'You have selected mystery meat. You may now select two sides...'
-		print 'you now have ' 
-		puts @wallet - @entrees[:mystery_meat]
+		puts "you now have $#{@wallet - @entrees[:mystery_meat]}"
 		puts sides	
 	elsif @entree_choice ==  'slop'
 		puts 'You have selected slop. You may now select two sides...'
-		print 'you now have ' 
-		puts @wallet - @entrees[:slop]
+		puts "you now have $#{@wallet - @entrees[:slop]}"
 		puts sides
 	else
 		puts 'Invalid selection. Please input one of the choices above'
