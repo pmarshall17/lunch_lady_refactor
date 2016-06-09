@@ -7,8 +7,8 @@
 @fixuns = []
 
 puts '****Welcome to the DPL Cafeteria!****'
-puts "You are included a gratis total of $100 on the house. Enjoy!"
-puts "please select your entree first!"
+puts 'You are included a gratis total of $100 on the house. Enjoy!'
+puts 'please select your entree first!'
 
 # person = { first_name: ‘Bob’, last_name: ‘Bobson’, age: 25 }
 
@@ -42,18 +42,27 @@ def fixuns
 	fixuns_response = gets.strip.downcase
 	@fixuns<<fixuns_response
 	# puts 'Your basket has' @final_menu 'and with it you have included' @fixuns 
+	#cd
 	'on it'
 end
 
 def sides
+	puts '-' * 10
 	puts 'Please choose any choice of two!'
 	puts "Your options are:\n>Carrots for $1.75\n>Yogurt for $1.00\n>Beef Jerkey for .50c"
-	puts 'enter as: "your_choice and your_choice"'
+	puts '-' * 10
+	puts "enter as: 'your_choice and your_choice'"
 	@side_choice = gets.strip.downcase
 	@final_menu << @side_choice
-		if @side_choice == 'carrots and yogurt' || 'yogurt and carrots'
+		if @side_choice == 'carrots and yogurt' || @side_choice =='yogurt and carrots'
 			#puts the wallet subtraction here
-		elsif @side_choice == 'carrots and beef jerkey' || "beef Jerkey and carrots"
+		elsif @side_choice == 'carrots and beef jerkey' || @side_choice == 'beef Jerkey and carrots'
+			#puts the wallet subtraction here
+		elsif @side_choice ==  'beef jerkey and yogurt' || @side_choice == 'yogurt and beef jerkey'
+			#puts the wallet subtraction here
+		else
+			'puts that is an invalid selection. Please try again'
+			sides
 		end	
 	puts '-' * 10	
 	puts 'your menu items are:'
@@ -75,19 +84,16 @@ def entree_selection
 		puts 'You have selected Meat Loaf. You may now select two sides...'
 		print 'you now have ' 
 		print @wallet - @entrees[:meat_loaf]
-		puts '-'*10
 		puts sides
 	elsif @entree_choice ==  'mystery meat'
 		puts 'You have selected mystery meat. You may now select two sides...'
 		print 'you now have ' 
 		puts @wallet - @entrees[:mystery_meat]
-		puts '-'*10
 		puts sides	
 	elsif @entree_choice ==  'slop'
 		puts 'You have selected slop. You may now select two sides...'
 		print 'you now have ' 
-		puts @wallet - @entrees[:slop]	
-		puts '-'*10
+		puts @wallet - @entrees[:slop]
 		puts sides
 	else
 		puts 'Invalid selection. Please input one of the choices above'
