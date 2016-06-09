@@ -10,9 +10,9 @@ puts '****Welcome to the DPL Cafeteria!****'
 puts 'You are included a gratis total of $100 on the house. Enjoy!'
 puts 'please select your entree first!'
 
-# person = { first_name: ‘Bob’, last_name: ‘Bobson’, age: 25 }
-
 def checkout_menu
+	puts "your total is #{@wallet}"
+	puts 'Enjoy your meal!'
 end
 
 
