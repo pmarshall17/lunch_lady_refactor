@@ -1,13 +1,13 @@
  require 'pry'
 
-@wallet = 100
+@wallet = 30
 @entrees = { meat_loaf: 5, mystery_meat: 3, slop: 1}
 @side_dishes = { carrots: 1.75, yogurt: 1.00, beef_Jerkey: 0.50 }
 @final_menu = []
 @fixuns = []
 
 puts '****Welcome to the DPL Cafeteria!****'
-puts 'You are included a gratis total of $100 on the house. Enjoy!'
+puts 'You are included a gratis total of $30 on the house. Enjoy!'
 puts 'please select your entree first!'
 
 def checkout_menu
@@ -41,8 +41,8 @@ def fixuns
 	puts "here are your options:\n>ketchup\n>bbq sauce\n>bread\n>ranch dressing\n>tobasco"
 	fixuns_response = gets.strip.downcase
 	@fixuns<<fixuns_response
-	print "Your basket has #{@final_menu} and with it you have included" 
-	'on it'
+	print "Your basket has #{@final_menu}. The toppings you wish to include are:"
+	@fixuns
 end
 
 def sides
@@ -55,20 +55,20 @@ def sides
 	@final_menu << @side_choice
 		if @side_choice == 'carrots and yogurt' || @side_choice =='yogurt and carrots'
 			print 'Your wallet now has $'
-			print @wallet - 2.75
+			puts @wallet - 2.75
 		elsif @side_choice == 'carrots and beef jerkey' || @side_choice == 'beef Jerkey and carrots'
 			print 'Your wallet now has $'
-			print @wallet - 2.25
+			puts @wallet - 2.25
 		elsif @side_choice ==  'beef jerkey and yogurt' || @side_choice == 'yogurt and beef jerkey'
 			print 'Your wallet now has $'
-			print @wallet - 1.50
+			puts @wallet - 1.50
 		else
-			'puts that is an invalid selection. Please try again'
+			puts 'that is an invalid selection. Please try again'
 			sides
 		end	
 	puts '-' * 10	
 	puts 'your menu items are:'
-	puts @final_menu.join','
+	puts @final_menu
 	puts 'would you like some toppings?'
 		answer = gets.strip.downcase
 		if answer =='yes'
